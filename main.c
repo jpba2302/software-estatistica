@@ -5,7 +5,10 @@
 /*Programa com vetor dinâmico que vai aumentando o tamanho conforme o usuário vai registrando as amostras
 calcula média, mediana, moda e desvio padrão */
 
-/* Mostra o menu e retorna a opção selecionada pelo usuário (int) */
+/**
+ * Mostra o menu, lê a opção do usuário e retorna ela
+ * @return opção do usuário
+ */
 
 int mostraMenu() {
     int opcao;
@@ -21,7 +24,12 @@ int mostraMenu() {
     return opcao;
 }
 
-/*Recebe um vetor e um tamanho, aumenta o tamanho do vetor e retorna ele, também aumenta o valor do tamanho*/
+/**
+ * Registra uma amostra no vetor
+ * @param vetor - vetor onde será registrada a amostra
+ * @param pTamanho - ponteiro que aponta o tamanho do vetor
+ * @return vetor realocado com amostra registrada
+ */
 
 float *registraAmostra (float *vetor, int *pTamanho) {
 
@@ -40,6 +48,12 @@ float *registraAmostra (float *vetor, int *pTamanho) {
     return vetor;
 }
 
+/**
+ * Imprime os valores do vetor
+ * @param vetor - vetor com os valores para ser imprimidos
+ * @param tamanho - tamanho do vetor
+ */
+
 void mostraVetor(float *vetor, int tamanho) {
     printf("\n");
     for (int i = 0;i < tamanho;i++) {
@@ -48,7 +62,12 @@ void mostraVetor(float *vetor, int tamanho) {
     printf("\n\n");
 }
 
-// Recebeo o vetor e o tamanho e retorna ele ordenado
+/**
+ * Faz o bubblesort em um vetor
+ * @param vetor - vetor onde se quer ordenar
+ * @param tamanho desse vetor
+ * @return vetor ordenado
+ */
 
 float *bubblesort(float *vetor, int tamanho) {
     for (int i = 0;i < tamanho - 1;i++) {
@@ -64,7 +83,13 @@ float *bubblesort(float *vetor, int tamanho) {
     return vetor;
 }
 
-// recebe um vetor e um tamanho, calcula a média e retorna ela
+/**
+ * Calcula a média dos valores dos elementos do vetor
+ * @param vetor - vetor para calcular a média
+ * @param tamanho - tamanho desse vetor
+ * @return média dos valores
+ */
+
 float calculaMedia (float *vetor, int tamanho) {
     float soma = 0;
     for (int i = 0;i < tamanho;i++) {
@@ -74,7 +99,12 @@ float calculaMedia (float *vetor, int tamanho) {
     return soma;
 }
 
-// recebe um vetor e um tamanho e mostra a moda
+/**
+ * Calcula a moda do vetor e imprime na tela
+ * @param vetor - vetor para calcular a moda
+ * @param tamanho - tamanho do vetor
+ */
+
 void calculaModa (float *vetor, int tamanho) {
     float moda = 0;
     int maiorReps = 0;
@@ -110,7 +140,12 @@ void calculaModa (float *vetor, int tamanho) {
     }
 }
 
-// recebe um vetor e um tamanho e mostra a mediana
+/**
+ * Calcula a mediana de um vetor e imprime na tela
+ * @param vetor - vetor para calcular a mediana
+ * @param tamanho - tamanho desse vetor
+ */
+
 void calculaMediana (float *vetor, int tamanho) {
     if (tamanho % 2 == 0) {
         printf("A mediana é: %.2f\n\n",(vetor[tamanho/2] + vetor[tamanho/2-1])/2);
@@ -119,7 +154,13 @@ void calculaMediana (float *vetor, int tamanho) {
     }
 }
 
-// recebe um vetor e um tamanho e calcula a variancia
+/**
+ * Calcula a variância dos valores dos elementos de um vetor
+ * @param vetor - vetor para calcular a variância
+ * @param tamanho - tamanho desse vetor
+ * @return variância dos valores dos elementos do vetor
+ */
+
 float calculaVariancia (float *vetor, int tamanho) {
     float soma = 0;
     for (int i = 0;i < tamanho;i++) {
@@ -128,7 +169,13 @@ float calculaVariancia (float *vetor, int tamanho) {
     return soma;
 }
 
-// recebe um vetor e um tamanho e calcula o desvio padrão
+/**
+ * Calcula o desvio padrão dos valores dos elementos de um vetor
+ * @param vetor - vetor para calcular o desvio padrão
+ * @param tamanho - tamanho do vetor
+ * @return desvio padrão dos valores dos elementos de um vetor
+ */
+
 float calculaDp (float *vetor, int tamanho) {
     float soma = calculaVariancia(vetor, tamanho);
     soma = soma / tamanho;
